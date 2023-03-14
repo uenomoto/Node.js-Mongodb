@@ -4,8 +4,11 @@ const taskRouter = require("./routes/tasks");
 const connectDB = require("./db/connect");
 // .envファイルを読み込む
 require("dotenv").config();
+
 // ↓この記述がないとexpressでjsonが使えない。忘れずに！
 app.use(express.json());
+// ↓この記述でHTMLファイル（静的サイト）を探してきてくれる！
+app.use(express.static("./public"));
 
 const PORT = 5000;
 

@@ -8,7 +8,7 @@ const TaskSchema = new mongoose.Schema({
     // NOT NULLと同じ役割空白禁止バリデーションtrimとセット
     require: [true, "タスク名を入力してください"],
     trim: true,
-    malength: [20, "タスク名は最大２０文字まで！"],
+    maxlength: [20, "タスク名は最大２０文字まで！"],
   },
 
   completed: {
