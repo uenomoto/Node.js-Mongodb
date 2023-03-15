@@ -20,12 +20,12 @@ const showTasks = async () => {
       .map((task) => {
         const { completed, _id, name } = task;
 
-        return `<div class="single-task">
+        return `<div class="single-task ${completed && "task-completed"}">
           <h5>
             <span><i class="far fa-check-circle"></i></span>${name}
           </h5>
-          <div class="task-links">
-            <a href="#" class="edit-link"><i class="fas fa-edit"></i></a>
+          <div class="task-links">  <!--?id=↓これで遷移先にidを渡せる。-->
+            <a href="edit.html?id=${_id}" class="edit-link"><i class="fas fa-edit"></i></a>
             <button type="button" class="delete-btn" data-id="${_id}">
               <i class="fas fa-trash"></i>
             </button>
@@ -60,6 +60,7 @@ formDOM.addEventListener("submit", async (e) => {
   }
   setTimeout(() => {
     formAlertDOM.style.display = "none";
+    formAlertDOM.classList.remove("text-success");
   }, 3000);
 });
 
